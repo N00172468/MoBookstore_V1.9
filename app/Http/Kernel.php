@@ -1,4 +1,12 @@
 <?php
+# @Author: Mohammed Cherbatji <mo>
+# @Date:   2019-09-26T12:45:24+01:00
+# @Filename: Kernel.php
+# @Last modified by:   mo
+# @Last modified time: 2019-09-26T14:16:32+01:00
+
+
+
 
 namespace App\Http;
 
@@ -60,6 +68,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'role' => \App\Http\Middleware\AuthRole::class,
     ];
 
     /**

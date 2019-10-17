@@ -1,4 +1,12 @@
 <?php
+# @Author: Mohammed Cherbatji <mo>
+# @Date:   2019-09-26T12:48:23+01:00
+# @Filename: HomeController.php
+# @Last modified by:   mo
+# @Last modified time: 2019-09-26T14:07:01+01:00
+
+
+
 
 namespace App\Http\Controllers;
 
@@ -21,8 +29,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $user = $request->user();
+        $home = 'user.home';
+
+        if ($user->hasRole('admin')) {
+          $home = 'admin.home';
+        }
+        else {
+          $home = 'user.home';
+        }
+
+        return redirect()->route($home);
     }
 }
