@@ -3,7 +3,7 @@
 # @Date:   2019-09-26T12:45:24+01:00
 # @Filename: User.php
 # @Last modified by:   mo
-# @Last modified time: 2019-09-26T13:52:02+01:00
+# @Last modified time: 2019-11-08T14:57:38+00:00
 
 
 
@@ -50,6 +50,16 @@ class User extends Authenticatable
     {
       return $this->belongsToMany('App\Role', 'user_role');
     }
+
+    public function reviews()
+    {
+      return $this->hasMany('App\Review');
+    }
+
+
+
+
+
 
     public function authorizeRoles($roles)
     {

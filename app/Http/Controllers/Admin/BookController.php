@@ -3,7 +3,7 @@
 # @Date:   2019-10-17T14:31:42+01:00
 # @Filename: BookController.php
 # @Last modified by:   mo
-# @Last modified time: 2019-10-31T23:10:00+00:00
+# @Last modified time: 2019-11-08T14:23:56+00:00
 
 
 
@@ -91,9 +91,11 @@ class BookController extends Controller
     public function show($id)
     {
         $book = Book::findOrFail($id);
+        $reviews = $book->reviews()->get();
 
         return view('admin.books.show')->with([
-          'book' => $book
+          'book' => $book,
+          'reviews' => $reviews
         ]);
     }
 

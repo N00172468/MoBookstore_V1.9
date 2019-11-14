@@ -3,7 +3,7 @@
 # @Date:   2019-09-26T12:45:24+01:00
 # @Filename: web.php
 # @Last modified by:   mo
-# @Last modified time: 2019-10-17T14:24:49+01:00
+# @Last modified time: 2019-11-08T14:53:46+00:00
 
 
 
@@ -37,5 +37,10 @@ Route::get('/admin/books/{id}/edit', 'Admin\BookController@edit')->name('admin.b
 Route::put('/admin/books/{id}', 'Admin\BookController@update')->name('admin.books.update');
 Route::delete('/admin/books/{id}', 'Admin\BookController@destroy')->name('admin.books.destroy');
 
+Route::delete('/admin/books/{id}/reviews/{rid}', 'Admin\ReviewController@destroy')->name('admin.reviews.destroy');
+
 Route::get('/user/books', 'User\BookController@index')->name('user.books.index');
 Route::get('/user/books/{id}', 'User\BookController@show')->name('user.books.show');
+
+Route::get('/user/books/{id}/reviews/create', 'User\ReviewController@create')->name('user.reviews.create');
+Route::post('/user/books/{id}/reviews/store', 'User\ReviewController@store')->name('user.reviews.store');
