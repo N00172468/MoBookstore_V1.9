@@ -3,7 +3,7 @@
 # @Date:   2019-10-31T22:34:13+00:00
 # @Filename: 2019_10_31_223413_add_publisher_id_to_books_table.php
 # @Last modified by:   mo
-# @Last modified time: 2019-10-31T22:37:41+00:00
+# @Last modified time: 2019-11-14T14:58:59+00:00
 
 
 
@@ -37,7 +37,7 @@ class AddPublisherIdToBooksTable extends Migration
     public function down()
     {
         Schema::table('books', function (Blueprint $table) {
-            $table->dropForeign('publisher_id');
+            $table->dropForeign(['publisher_id']);
             $table->dropColumn('publisher_id');
             $table->string('publisher');
         });
