@@ -1,3 +1,13 @@
+<!--
+@Author: John Carlo M. Ramos
+@Date:   2019-11-17T19:58:44+00:00
+@Email:  !!!!!---CTRL + ALT + C = Colour Picker---!!!!!
+@Last modified by:   John Carlo M. Ramos
+@Last modified time: 2019-11-19T15:48:11+00:00
+-->
+
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
@@ -29,5 +39,7 @@
         <server name="MAIL_DRIVER" value="array"/>
         <server name="QUEUE_CONNECTION" value="sync"/>
         <server name="SESSION_DRIVER" value="array"/>
+        <server name="DB_CONNECTION" value="mysql"/>
+        <server name="DB_DATABASE" value="mo_bookstore_v1_9"/>
     </php>
 </phpunit>

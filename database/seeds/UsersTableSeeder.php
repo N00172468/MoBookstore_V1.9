@@ -2,8 +2,8 @@
 # @Author: Mohammed Cherbatji <mo>
 # @Date:   2019-09-26T13:18:13+01:00
 # @Filename: UsersTableSeeder.php
-# @Last modified by:   mo
-# @Last modified time: 2019-11-14T17:32:55+00:00
+# @Last modified by:   John Carlo M. Ramos
+# @Last modified time: 2019-11-19T15:42:19+00:00
 
 
 
@@ -38,6 +38,10 @@ class UsersTableSeeder extends Seeder
       $user->password = bcrypt('secret');
       $user->save();
       $user->roles()->attach($role_user);
+
+      factory(App\User::class, 20)->create()->each(function ($user) {
+        $user->roles()->attach(Role::where('name', 'user')->first());
+      });
 
     }
 }
